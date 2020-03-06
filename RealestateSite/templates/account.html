@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Account Page </h1>
+    <body>
+    {% if current_user.userRole == 2 %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2">{{ user.buyerName }}</a>
+                <a  class="btn btn-secondary btn-sm m-1" href="{{ url_for('editAccount', buyerID=user.buyerID)}}">Edit</a>
+                <small class="text-muted">Buyer ID: {{ user.buyerID }}</small>
+            <div>
+                <small class="text-muted">Email: {{ user.email }}</small>
+            </div>
+            </div>
+              <p class="article-content"> Phone Number: {{ user.phoneNumber }}</p>
+              <p class="article-content"> Preferred City: {{ user.lfCity }}</p>
+              <p class="article-content"> Budget: {{ user.budget }}</p>
+              <p class="article-content"> Preferred Size: {{ user.lfSqft }} sqft</p>
+              <p class="article-content"> Preferred Bathrooms: {{ user.lfBathrooms }}</p>
+              <p class="article-content"> Preferred Bedrooms: {{ user.lfBedrooms }}</p>
+              <p class="article-content"> Your Agent: {{ agent.agentName }}</p>
+            </div>
+        </article>
+    {% endif %}
+    {% if current_user.userRole == 3 %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2">{{ user.sellerName }}</a>
+
+                <small class="text-muted">Seller ID: {{ user.sellerID }}</small>
+            <div>
+                <small class="text-muted">Phone Number: {{ user.phoneNumber }}</small>
+            </div>
+            </div>
+              <p class="article-content"> Phone Number: {{ user.phoneNumber }}</p>
+              <p class="article-content"> Your House: {{ house.address }}</p>
+              <p class="article-content"> Your Agent: {{ agent.agentName }}</p>
+            </div>
+        </article>
+    {% endif %}
+
+{% endblock content %}

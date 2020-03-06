@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class ="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Welcome to Battle of the Branches!</legend>
+                <div class="form-group">
+
+                    {{ form.branchOne.label(class="form-control-label") }}
+                    {{ form.branchOne(class="form-control form-control") }}
+
+                    {{ form.branchTwo.label(class="form-control-label") }}
+                    {{ form.branchTwo(class="form-control form-control") }}
+
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+
+    </div>
+{% endblock content %}

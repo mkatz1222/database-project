@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Favorites Page </h1>
+    <body>
+    This page will show all the favorites for the user who is logged in.
+    {% for favorite in favorites %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('favorites', houseID = favorite.houseID) }}">{{ favorite.address }}</a>
+              <small class="text-muted">${{ favorite.price }}</small>
+
+            <div>
+                <small class="text-muted">Posted: {{ favorite.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            </div>
+              <p class="article-content"> Bedrooms: {{ favorite.numberBedrooms }}</p>
+              <p class="article-content"> Bathrooms: {{ favorite.numberBathrooms }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    </body>
+
+
+{% endblock content %}

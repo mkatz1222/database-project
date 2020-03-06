@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1> Find An Agent </h1>
+    <div class ="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Find An Agent Today</legend>
+                <div class="form-group">
+                    {{ form.agentBranch.label(class="form-control-label") }}
+                    {{ form.agentBranch(class="form-control form-control") }}
+
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+
+    </div>
+{% endblock content %}

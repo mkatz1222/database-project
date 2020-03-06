@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+
+                    {{ form.buyerName.label(class="form-control-label") }}
+                    {{ form.buyerName(class="form-control form-control") }}
+
+                    {{ form.phoneNumber.label(class="form-control-label") }}
+                    {{ form.phoneNumber(class="form-control form-control") }}
+
+                    {{ form.budget.label(class="form-control-label") }}
+                    {{ form.budget(class="form-control form-control") }}
+
+                    {{ form.lfSqft.label(class="form-control-label") }}
+                    {{ form.lfSqft(class="form-control form-control") }}
+
+                    {{ form.lfBedrooms.label(class="form-control-label") }}
+                    {{ form.lfBedrooms(class="form-control form-control") }}
+
+                    {{ form.lfBathrooms.label(class="form-control-label") }}
+                    {{ form.lfBathrooms(class="form-control form-control") }}
+
+                    {{ form.lfCity.label(class="form-control-label") }}
+                    {{ form.lfCity(class="form-control form-control") }}
+
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}

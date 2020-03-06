@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>
+        Agents
+    </h1>
+    <body>
+    These are the Agents in your selected area.
+    </body>
+    {% for agent in agents %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ agent.agentName }}</a>
+              <small class="text-muted">{{ agent.city }}</small>
+                {% if current_user.userRole == 5 %}
+                    <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal"> Delete </button>
+                {% endif %}
+            </div>
+            <p class="article-content">Phone Number: {{ agent.phoneNumber }}</p>
+              {% if current_user.userRole == 5 %}
+                <p class="article-content">Last Year's Income: ${{ agent.incomeLastYear }}</p>
+                <p class="article-content">Agent ID: {{ agent.agentID }}</p>
+                <p class="article-content">Agent's Branch ID: {{ agent.branchID }}</p>
+              {% endif %}
+          </div>
+        </article>
+    {% if current_user.userRole == 5 %}
+    <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Agent?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <form action="{{ url_for('deleteAgent', agentID=agent.agentID) }}" method="POSt">
+                      <input class="btn btn-danger" type="submit", value="Delete">
+                  </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+{% endblock content %}

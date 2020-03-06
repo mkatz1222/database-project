@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>
+        Search Results
+    </h1>
+    <body>
+    Search returned {{total}} houses that fit your criteria.
+    </body>
+    {% for house in houses %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('house', houseID = house.houseID) }}">{{ house.address }}</a>
+              <small class="text-muted">${{ house.price }}</small>
+                <small class="text-muted">{{ house.sizeSqft }}sqft</small>
+            </div>
+              <p class="article-content"> Bedrooms: {{ house.numberBedrooms }}</p>
+              <p class="article-content"> Bathrooms: {{ house.numberBathrooms }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>
+        Home
+    </h1>
+
+    {% for house in houses %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('house', houseID = house.houseID) }}">{{ house.address }}</a>
+              <small class="text-muted">${{ house.price }}</small>
+
+            <div>
+                <small class="text-muted">Posted: {{ house.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            </div>
+              <p class="article-content"> Bedrooms: {{ house.numberBedrooms }}</p>
+              <p class="article-content"> Bathrooms: {{ house.numberBathrooms }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
