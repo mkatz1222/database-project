@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>
+        Your Clients
+    </h1>
+    <body>
+    These are the clients that you are contracted to.
+    </body>
+    <h3>
+    Buyers:
+    </h3>
+
+    {% for buyer in buyers %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="account.html">{{ buyer.buyerName }}</a>
+              <small class="text-muted">{{ buyer.email }}</small>
+            </div>
+            <p class="article-content">Phone Number: {{ buyer.phoneNumber }}</p>
+                <p class="article-content">Budget: ${{ buyer.budget }}</p>
+                <p class="article-content">Preferred City: {{ buyer.lfCity }}</p>
+                <p class="article-content">Preferred # of Bedrooms: {{ buyer.lfBedrooms }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    <h3>
+        Sellers:
+    </h3>
+    {% for seller in sellers %}
+        <article class="m879edia content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="account.html">{{ seller.sellerName }}</a>
+              <small class="text-muted">Phone Number: {{ seller.phoneNumber }}</small>
+            </div>
+            <p class="article-content">Their House: {{ seller.address }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

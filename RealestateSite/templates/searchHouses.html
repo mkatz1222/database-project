@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1> Find A Home </h1>
+    <div class ="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Find A Home Today</legend>
+                <div class="form-group">
+
+                    {{ form.address.label(class="form-control-label") }}
+                    {{ form.address(class="form-control form-control") }}
+
+                    {{ form.price.label(class="form-control-label") }}
+                    {{ form.price(class="form-control form-control") }}
+
+                    {{ form.bedrooms.label(class="form-control-label") }}
+                    {{ form.bedrooms(class="form-control form-control") }}
+
+                    {{ form.bathrooms.label(class="form-control-label") }}
+                    {{ form.bathrooms(class="form-control form-control") }}
+
+                    {{ form.size.label(class="form-control-label") }}
+                    {{ form.size(class="form-control form-control") }}
+
+                    {{ form.city.label(class="form-control-label") }}
+                    {{ form.city(class="form-control form-control") }}
+
+                    {{ form.fence.label(class="form-control-label") }}
+                    {{ form.fence(class="form-control form-control") }}
+
+                    {{ form.pool.label(class="form-control-label") }}
+                    {{ form.pool(class="form-control form-control") }}
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}
